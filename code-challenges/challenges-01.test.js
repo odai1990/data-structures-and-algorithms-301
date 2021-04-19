@@ -11,7 +11,7 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 const addOne = (arr) => {
   // Solution code here...
   const result = [];
-  arr.forEach(function (number){
+  arr.forEach(function (number) {
     result.push(number + 1);
   });
   return result;
@@ -28,7 +28,7 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 const addExclamation = (arr) => {
   // Solution code here...
   const result = [];
-  arr.forEach(function (greet){
+  arr.forEach(function (greet) {
     result.push(greet + '!');
   });
   return result;
@@ -45,7 +45,7 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 const allUpperCase = (arr) => {
   // Solution code here...
   const result = [];
-  arr.forEach(function (greet){
+  arr.forEach(function (greet) {
     result.push(greet.toUpperCase());
   });
   return result;
@@ -72,8 +72,8 @@ const greeting = (word) => {
 const speaker = (words, callback) => {
   // Solution code here...
   const newArray = [];
-  words.forEach(function (word){
-    newArray.push(callback (word));
+  words.forEach(function (word) {
+    newArray.push(callback(word));
   });
   return newArray;
 };
@@ -105,7 +105,7 @@ const addValues = (arr, value) => {
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
-  for (var i = 0; i < times; i++){
+  for (var i = 0; i < times; i++) {
     callback(arr, num);
   }
   return arr;
@@ -132,8 +132,8 @@ This function should use forEach to populate your grocery list based on the stor
 const createList = (availableItems) => {
   // Solution code here...
   const groc = [];
-  availableItems.forEach(function(list){
-    if (list.available === true){
+  availableItems.forEach(function (list) {
+    if (list.available === true) {
       groc.push(list.name);
     }
   });
@@ -156,6 +156,19 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  const fuzz = [];
+  arr.forEach(function (list) {
+    if (list % 5 === 0 && list % 3 === 0) {
+      fuzz.push('Fizz Buzz');
+    } else if (list % 5 === 0) {
+      fuzz.push('Buzz');
+    } else if (list % 3 === 0) {
+      fuzz.push('Fizz');
+    } else {
+      fuzz.push(list);
+    }
+  });
+  return fuzz;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -209,9 +222,8 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-
   test('It should print out messages or numbers', () => {
     expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
     expect(fizzbuzz(inputs).length).toStrictEqual(16);
