@@ -1,0 +1,5 @@
+{
+    "npm.enableRunFromFolder": true,
+    "powermode.enabled": true,
+    "powermode.presets": "flames"
+}
