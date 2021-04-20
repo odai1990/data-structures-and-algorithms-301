@@ -316,7 +316,13 @@ const sortMeetingsByDay = (arr) => {
     else if(days.indexOf(a.dayOfWeek) < days.indexOf(b.dayOfWeek))
     return -1;
     else
-    return 0;
+    if(days.indexOf(a.dayOfWeek) === days.indexOf(b.dayOfWeek))
+         if(parseInt(a.end)-parseInt(a.start) < parseInt(b.end)-parseInt(b.start))
+         return -1;
+         else
+         return 1;
+         else
+         return 0;
   });
 return arr;
 }
@@ -333,6 +339,17 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  const days = ["Saturday", "Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  arr.sort((a,b)=>
+  {
+    if(days.indexOf(a.dayOfWeek) > days.indexOf(b.dayOfWeek))
+    return 1;
+    else if(days.indexOf(a.dayOfWeek) < days.indexOf(b.dayOfWeek))
+    return -1;
+    else
+    return 0;
+  });
+return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -477,7 +494,7 @@ describe('Testing challenge 12', () => {
   });
 });
 
-xdescribe('Testing challenge 13', () => {
+describe('Testing challenge 13', () => {
   test('It should sort meetings by when they happen', () => {
     expect(sortSchedule(meetings)).toStrictEqual([
       new Meeting('Monday', '0900', '0945'),
